@@ -4,10 +4,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
   const query = (await searchParams)?.query;
   const posts = [
     {
-    _createdAt: 'yesterday',
+    _createdAt: new Date(),
     view: 21,
     author: {
-      _id: 1
+      _id: 1,
+      name:'osama'
     }
     ,
     _id: 1,
@@ -17,10 +18,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
     title: 'tgee'
   },
     {
-    _createdAt: 'yesterday',
+    _createdAt: new Date(),
     view: 21,
     author: {
-      _id: 1
+      _id: 2,
+      name:'osama'
     }
     ,
     _id: 2,
@@ -30,10 +32,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
     title: 'tgee'
   },
     {
-    _createdAt: 'yesterday',
+    _createdAt: new Date(),
     view: 21,
     author: {
-      _id: 1
+      _id: 3,
+      name:'osama'
     }
     ,
     _id: 3,
@@ -57,11 +60,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
         <p className='text-30-bold'>
           {query ? `Results for "${query}"` : 'All startups'}
         </p>
-        <ul className='mt-7 card-grid'>
+        <ul className='mt-7 card_grid'>
           {posts?.length > 0 ? posts.map((post: any, index: number) => (
-            <>
-              <StartupCard key={post?._id} post={post} />
-            </>
+            
+              <StartupCard key={post._id} post={post} />
+            
           ))
             :
             <>
